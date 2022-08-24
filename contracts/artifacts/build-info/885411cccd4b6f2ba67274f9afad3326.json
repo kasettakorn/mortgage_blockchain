@@ -1,0 +1,1002 @@
+{
+	"id": "885411cccd4b6f2ba67274f9afad3326",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.7",
+	"solcLongVersion": "0.8.7+commit.e28d00a7",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/Parcel.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\nstruct Parcel_land {\r\n    uint parcel_no;\r\n    string owner_name;\r\n    uint price;\r\n    uint area;\r\n}\r\n\r\n// ภาระผูกพัน\r\nstruct Olgt {\r\n    string olgt_name;\r\n    uint olgt_price;\r\n}\r\n\r\ncontract Parcel {\r\n    address owner;\r\n    mapping(address=>Parcel_land) _parcel_land;\r\n    mapping(address=>Olgt) _olgt;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n   \r\n\r\n    //ไถ่ถอนจำนอง + เปลี่ยนผู้ถือกรรมสิทธิ์เป็นเจ้าของเดิม\r\n   /* function redeem(address person, string memory owner_name, uint price) public payable {\r\n        require(_olgt[owner].olgt_price >= price, \"Insufficient fund for redeem.\");\r\n        _parcel_land[person].owner_name = owner_name;\r\n        _olgt[person].olgt_name = \"\";\r\n        _olgt[person].olgt_price = 0;\r\n    }*/\r\n\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			}
+		}
+	},
+	"output": {
+		"contracts": {
+			"contracts/Parcel.sol": {
+				"Parcel": {
+					"abi": [
+						{
+							"inputs": [],
+							"stateMutability": "nonpayable",
+							"type": "constructor"
+						}
+					],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {},
+						"version": 1
+					},
+					"evm": {
+						"assembly": "    /* \"contracts/Parcel.sol\":265:938  contract Parcel {\r... */\n  mstore(0x40, 0x80)\n    /* \"contracts/Parcel.sol\":394:445  constructor() {\r... */\n  callvalue\n  dup1\n  iszero\n  tag_1\n  jumpi\n  0x00\n  dup1\n  revert\ntag_1:\n  pop\n    /* \"contracts/Parcel.sol\":427:437  msg.sender */\n  caller\n    /* \"contracts/Parcel.sol\":419:424  owner */\n  0x00\n  dup1\n    /* \"contracts/Parcel.sol\":419:437  owner = msg.sender */\n  0x0100\n  exp\n  dup2\n  sload\n  dup2\n  0xffffffffffffffffffffffffffffffffffffffff\n  mul\n  not\n  and\n  swap1\n  dup4\n  0xffffffffffffffffffffffffffffffffffffffff\n  and\n  mul\n  or\n  swap1\n  sstore\n  pop\n    /* \"contracts/Parcel.sol\":265:938  contract Parcel {\r... */\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x00\n  codecopy\n  0x00\n  return\nstop\n\nsub_0: assembly {\n        /* \"contracts/Parcel.sol\":265:938  contract Parcel {\r... */\n      mstore(0x40, 0x80)\n      0x00\n      dup1\n      revert\n\n    auxdata: 0xa2646970667358221220166fbd6957a3f197231d8d9b89957eee51cc174ea4cd87f1b162a51380e54a8f64736f6c63430008070033\n}\n",
+						"bytecode": {
+							"functionDebugData": {
+								"@_36": {
+									"entryPoint": null,
+									"id": 36,
+									"parameterSlots": 0,
+									"returnSlots": 0
+								}
+							},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "6080604052348015600f57600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550603f80605d6000396000f3fe6080604052600080fdfea2646970667358221220166fbd6957a3f197231d8d9b89957eee51cc174ea4cd87f1b162a51380e54a8f64736f6c63430008070033",
+							"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLER PUSH1 0x0 DUP1 PUSH2 0x100 EXP DUP2 SLOAD DUP2 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF MUL NOT AND SWAP1 DUP4 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND MUL OR SWAP1 SSTORE POP PUSH1 0x3F DUP1 PUSH1 0x5D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 AND PUSH16 0xBD6957A3F197231D8D9B89957EEE51CC OR 0x4E LOG4 0xCD DUP8 CALL 0xB1 PUSH3 0xA51380 0xE5 0x4A DUP16 PUSH5 0x736F6C6343 STOP ADDMOD SMOD STOP CALLER ",
+							"sourceMap": "265:673:0:-:0;;;394:51;;;;;;;;;;427:10;419:5;;:18;;;;;;;;;;;;;;;;;;265:673;;;;;;"
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "6080604052600080fdfea2646970667358221220166fbd6957a3f197231d8d9b89957eee51cc174ea4cd87f1b162a51380e54a8f64736f6c63430008070033",
+							"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 AND PUSH16 0xBD6957A3F197231D8D9B89957EEE51CC OR 0x4E LOG4 0xCD DUP8 CALL 0xB1 PUSH3 0xA51380 0xE5 0x4A DUP16 PUSH5 0x736F6C6343 STOP ADDMOD SMOD STOP CALLER ",
+							"sourceMap": "265:673:0:-:0;;;;;"
+						},
+						"gasEstimates": {
+							"creation": {
+								"codeDepositCost": "12600",
+								"executionCost": "24332",
+								"totalCost": "36932"
+							}
+						},
+						"legacyAssembly": {
+							".code": [
+								{
+									"begin": 265,
+									"end": 938,
+									"name": "PUSH",
+									"source": 0,
+									"value": "80"
+								},
+								{
+									"begin": 265,
+									"end": 938,
+									"name": "PUSH",
+									"source": 0,
+									"value": "40"
+								},
+								{
+									"begin": 265,
+									"end": 938,
+									"name": "MSTORE",
+									"source": 0
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "CALLVALUE",
+									"source": 0
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "DUP1",
+									"source": 0
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "ISZERO",
+									"source": 0
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "PUSH [tag]",
+									"source": 0,
+									"value": "1"
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "JUMPI",
+									"source": 0
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "DUP1",
+									"source": 0
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "REVERT",
+									"source": 0
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "tag",
+									"source": 0,
+									"value": "1"
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "JUMPDEST",
+									"source": 0
+								},
+								{
+									"begin": 394,
+									"end": 445,
+									"name": "POP",
+									"source": 0
+								},
+								{
+									"begin": 427,
+									"end": 437,
+									"name": "CALLER",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 424,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 419,
+									"end": 424,
+									"name": "DUP1",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "PUSH",
+									"source": 0,
+									"value": "100"
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "EXP",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "DUP2",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "SLOAD",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "DUP2",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "PUSH",
+									"source": 0,
+									"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "MUL",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "NOT",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "AND",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "SWAP1",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "DUP4",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "PUSH",
+									"source": 0,
+									"value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "AND",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "MUL",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "OR",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "SWAP1",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "SSTORE",
+									"source": 0
+								},
+								{
+									"begin": 419,
+									"end": 437,
+									"name": "POP",
+									"source": 0
+								},
+								{
+									"begin": 265,
+									"end": 938,
+									"name": "PUSH #[$]",
+									"source": 0,
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 265,
+									"end": 938,
+									"name": "DUP1",
+									"source": 0
+								},
+								{
+									"begin": 265,
+									"end": 938,
+									"name": "PUSH [$]",
+									"source": 0,
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 265,
+									"end": 938,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 265,
+									"end": 938,
+									"name": "CODECOPY",
+									"source": 0
+								},
+								{
+									"begin": 265,
+									"end": 938,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 265,
+									"end": 938,
+									"name": "RETURN",
+									"source": 0
+								}
+							],
+							".data": {
+								"0": {
+									".auxdata": "a2646970667358221220166fbd6957a3f197231d8d9b89957eee51cc174ea4cd87f1b162a51380e54a8f64736f6c63430008070033",
+									".code": [
+										{
+											"begin": 265,
+											"end": 938,
+											"name": "PUSH",
+											"source": 0,
+											"value": "80"
+										},
+										{
+											"begin": 265,
+											"end": 938,
+											"name": "PUSH",
+											"source": 0,
+											"value": "40"
+										},
+										{
+											"begin": 265,
+											"end": 938,
+											"name": "MSTORE",
+											"source": 0
+										},
+										{
+											"begin": 265,
+											"end": 938,
+											"name": "PUSH",
+											"source": 0,
+											"value": "0"
+										},
+										{
+											"begin": 265,
+											"end": 938,
+											"name": "DUP1",
+											"source": 0
+										},
+										{
+											"begin": 265,
+											"end": 938,
+											"name": "REVERT",
+											"source": 0
+										}
+									]
+								}
+							}
+						},
+						"methodIdentifiers": {}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Parcel.sol\":\"Parcel\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Parcel.sol\":{\"keccak256\":\"0xc6696750b1464b0a25b1b2c1ddb653b2267635b36e53fd1205afc296d2e23ec3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://00e38152eca074ad48b32ad6ab6f6342b7f90627dc2f8f7e067e1b7a0d258451\",\"dweb:/ipfs/QmPr4aVU4fYvLRqkzxVMo3yR7dABKg8gkHKLDWsS2mi4wM\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [
+							{
+								"astId": 17,
+								"contract": "contracts/Parcel.sol:Parcel",
+								"label": "owner",
+								"offset": 0,
+								"slot": "0",
+								"type": "t_address"
+							},
+							{
+								"astId": 22,
+								"contract": "contracts/Parcel.sol:Parcel",
+								"label": "_parcel_land",
+								"offset": 0,
+								"slot": "1",
+								"type": "t_mapping(t_address,t_struct(Parcel_land)10_storage)"
+							},
+							{
+								"astId": 27,
+								"contract": "contracts/Parcel.sol:Parcel",
+								"label": "_olgt",
+								"offset": 0,
+								"slot": "2",
+								"type": "t_mapping(t_address,t_struct(Olgt)15_storage)"
+							}
+						],
+						"types": {
+							"t_address": {
+								"encoding": "inplace",
+								"label": "address",
+								"numberOfBytes": "20"
+							},
+							"t_mapping(t_address,t_struct(Olgt)15_storage)": {
+								"encoding": "mapping",
+								"key": "t_address",
+								"label": "mapping(address => struct Olgt)",
+								"numberOfBytes": "32",
+								"value": "t_struct(Olgt)15_storage"
+							},
+							"t_mapping(t_address,t_struct(Parcel_land)10_storage)": {
+								"encoding": "mapping",
+								"key": "t_address",
+								"label": "mapping(address => struct Parcel_land)",
+								"numberOfBytes": "32",
+								"value": "t_struct(Parcel_land)10_storage"
+							},
+							"t_string_storage": {
+								"encoding": "bytes",
+								"label": "string",
+								"numberOfBytes": "32"
+							},
+							"t_struct(Olgt)15_storage": {
+								"encoding": "inplace",
+								"label": "struct Olgt",
+								"members": [
+									{
+										"astId": 12,
+										"contract": "contracts/Parcel.sol:Parcel",
+										"label": "olgt_name",
+										"offset": 0,
+										"slot": "0",
+										"type": "t_string_storage"
+									},
+									{
+										"astId": 14,
+										"contract": "contracts/Parcel.sol:Parcel",
+										"label": "olgt_price",
+										"offset": 0,
+										"slot": "1",
+										"type": "t_uint256"
+									}
+								],
+								"numberOfBytes": "64"
+							},
+							"t_struct(Parcel_land)10_storage": {
+								"encoding": "inplace",
+								"label": "struct Parcel_land",
+								"members": [
+									{
+										"astId": 3,
+										"contract": "contracts/Parcel.sol:Parcel",
+										"label": "parcel_no",
+										"offset": 0,
+										"slot": "0",
+										"type": "t_uint256"
+									},
+									{
+										"astId": 5,
+										"contract": "contracts/Parcel.sol:Parcel",
+										"label": "owner_name",
+										"offset": 0,
+										"slot": "1",
+										"type": "t_string_storage"
+									},
+									{
+										"astId": 7,
+										"contract": "contracts/Parcel.sol:Parcel",
+										"label": "price",
+										"offset": 0,
+										"slot": "2",
+										"type": "t_uint256"
+									},
+									{
+										"astId": 9,
+										"contract": "contracts/Parcel.sol:Parcel",
+										"label": "area",
+										"offset": 0,
+										"slot": "3",
+										"type": "t_uint256"
+									}
+								],
+								"numberOfBytes": "128"
+							},
+							"t_uint256": {
+								"encoding": "inplace",
+								"label": "uint256",
+								"numberOfBytes": "32"
+							}
+						}
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"contracts/Parcel.sol": {
+				"ast": {
+					"absolutePath": "contracts/Parcel.sol",
+					"exportedSymbols": {
+						"Olgt": [
+							15
+						],
+						"Parcel": [
+							37
+						],
+						"Parcel_land": [
+							10
+						]
+					},
+					"id": 38,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:23:0"
+						},
+						{
+							"canonicalName": "Parcel_land",
+							"id": 10,
+							"members": [
+								{
+									"constant": false,
+									"id": 3,
+									"mutability": "mutable",
+									"name": "parcel_no",
+									"nameLocation": "91:9:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 10,
+									"src": "86:14:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 2,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "86:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 5,
+									"mutability": "mutable",
+									"name": "owner_name",
+									"nameLocation": "114:10:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 10,
+									"src": "107:17:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 4,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "107:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 7,
+									"mutability": "mutable",
+									"name": "price",
+									"nameLocation": "136:5:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 10,
+									"src": "131:10:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 6,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "131:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 9,
+									"mutability": "mutable",
+									"name": "area",
+									"nameLocation": "153:4:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 10,
+									"src": "148:9:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 8,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "148:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								}
+							],
+							"name": "Parcel_land",
+							"nameLocation": "67:11:0",
+							"nodeType": "StructDefinition",
+							"scope": 38,
+							"src": "60:101:0",
+							"visibility": "public"
+						},
+						{
+							"canonicalName": "Olgt",
+							"id": 15,
+							"members": [
+								{
+									"constant": false,
+									"id": 12,
+									"mutability": "mutable",
+									"name": "olgt_name",
+									"nameLocation": "226:9:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 15,
+									"src": "219:16:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_string_storage_ptr",
+										"typeString": "string"
+									},
+									"typeName": {
+										"id": 11,
+										"name": "string",
+										"nodeType": "ElementaryTypeName",
+										"src": "219:6:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_string_storage_ptr",
+											"typeString": "string"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 14,
+									"mutability": "mutable",
+									"name": "olgt_price",
+									"nameLocation": "247:10:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 15,
+									"src": "242:15:0",
+									"stateVariable": false,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_uint256",
+										"typeString": "uint256"
+									},
+									"typeName": {
+										"id": 13,
+										"name": "uint",
+										"nodeType": "ElementaryTypeName",
+										"src": "242:4:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_uint256",
+											"typeString": "uint256"
+										}
+									},
+									"visibility": "internal"
+								}
+							],
+							"name": "Olgt",
+							"nameLocation": "207:4:0",
+							"nodeType": "StructDefinition",
+							"scope": 38,
+							"src": "200:61:0",
+							"visibility": "public"
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"contractDependencies": [],
+							"contractKind": "contract",
+							"fullyImplemented": true,
+							"id": 37,
+							"linearizedBaseContracts": [
+								37
+							],
+							"name": "Parcel",
+							"nameLocation": "274:6:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"constant": false,
+									"id": 17,
+									"mutability": "mutable",
+									"name": "owner",
+									"nameLocation": "296:5:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 37,
+									"src": "288:13:0",
+									"stateVariable": true,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_address",
+										"typeString": "address"
+									},
+									"typeName": {
+										"id": 16,
+										"name": "address",
+										"nodeType": "ElementaryTypeName",
+										"src": "288:7:0",
+										"stateMutability": "nonpayable",
+										"typeDescriptions": {
+											"typeIdentifier": "t_address",
+											"typeString": "address"
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 22,
+									"mutability": "mutable",
+									"name": "_parcel_land",
+									"nameLocation": "338:12:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 37,
+									"src": "308:42:0",
+									"stateVariable": true,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_mapping$_t_address_$_t_struct$_Parcel_land_$10_storage_$",
+										"typeString": "mapping(address => struct Parcel_land)"
+									},
+									"typeName": {
+										"id": 21,
+										"keyType": {
+											"id": 18,
+											"name": "address",
+											"nodeType": "ElementaryTypeName",
+											"src": "316:7:0",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											}
+										},
+										"nodeType": "Mapping",
+										"src": "308:29:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_mapping$_t_address_$_t_struct$_Parcel_land_$10_storage_$",
+											"typeString": "mapping(address => struct Parcel_land)"
+										},
+										"valueType": {
+											"id": 20,
+											"nodeType": "UserDefinedTypeName",
+											"pathNode": {
+												"id": 19,
+												"name": "Parcel_land",
+												"nodeType": "IdentifierPath",
+												"referencedDeclaration": 10,
+												"src": "325:11:0"
+											},
+											"referencedDeclaration": 10,
+											"src": "325:11:0",
+											"typeDescriptions": {
+												"typeIdentifier": "t_struct$_Parcel_land_$10_storage_ptr",
+												"typeString": "struct Parcel_land"
+											}
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"constant": false,
+									"id": 27,
+									"mutability": "mutable",
+									"name": "_olgt",
+									"nameLocation": "380:5:0",
+									"nodeType": "VariableDeclaration",
+									"scope": 37,
+									"src": "357:28:0",
+									"stateVariable": true,
+									"storageLocation": "default",
+									"typeDescriptions": {
+										"typeIdentifier": "t_mapping$_t_address_$_t_struct$_Olgt_$15_storage_$",
+										"typeString": "mapping(address => struct Olgt)"
+									},
+									"typeName": {
+										"id": 26,
+										"keyType": {
+											"id": 23,
+											"name": "address",
+											"nodeType": "ElementaryTypeName",
+											"src": "365:7:0",
+											"typeDescriptions": {
+												"typeIdentifier": "t_address",
+												"typeString": "address"
+											}
+										},
+										"nodeType": "Mapping",
+										"src": "357:22:0",
+										"typeDescriptions": {
+											"typeIdentifier": "t_mapping$_t_address_$_t_struct$_Olgt_$15_storage_$",
+											"typeString": "mapping(address => struct Olgt)"
+										},
+										"valueType": {
+											"id": 25,
+											"nodeType": "UserDefinedTypeName",
+											"pathNode": {
+												"id": 24,
+												"name": "Olgt",
+												"nodeType": "IdentifierPath",
+												"referencedDeclaration": 15,
+												"src": "374:4:0"
+											},
+											"referencedDeclaration": 15,
+											"src": "374:4:0",
+											"typeDescriptions": {
+												"typeIdentifier": "t_struct$_Olgt_$15_storage_ptr",
+												"typeString": "struct Olgt"
+											}
+										}
+									},
+									"visibility": "internal"
+								},
+								{
+									"body": {
+										"id": 35,
+										"nodeType": "Block",
+										"src": "408:37:0",
+										"statements": [
+											{
+												"expression": {
+													"id": 33,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"leftHandSide": {
+														"id": 30,
+														"name": "owner",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 17,
+														"src": "419:5:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_address",
+															"typeString": "address"
+														}
+													},
+													"nodeType": "Assignment",
+													"operator": "=",
+													"rightHandSide": {
+														"expression": {
+															"id": 31,
+															"name": "msg",
+															"nodeType": "Identifier",
+															"overloadedDeclarations": [],
+															"referencedDeclaration": 4294967281,
+															"src": "427:3:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_magic_message",
+																"typeString": "msg"
+															}
+														},
+														"id": 32,
+														"isConstant": false,
+														"isLValue": false,
+														"isPure": false,
+														"lValueRequested": false,
+														"memberName": "sender",
+														"nodeType": "MemberAccess",
+														"src": "427:10:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_address",
+															"typeString": "address"
+														}
+													},
+													"src": "419:18:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_address",
+														"typeString": "address"
+													}
+												},
+												"id": 34,
+												"nodeType": "ExpressionStatement",
+												"src": "419:18:0"
+											}
+										]
+									},
+									"id": 36,
+									"implemented": true,
+									"kind": "constructor",
+									"modifiers": [],
+									"name": "",
+									"nameLocation": "-1:-1:-1",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 28,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "405:2:0"
+									},
+									"returnParameters": {
+										"id": 29,
+										"nodeType": "ParameterList",
+										"parameters": [],
+										"src": "408:0:0"
+									},
+									"scope": 37,
+									"src": "394:51:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "public"
+								}
+							],
+							"scope": 38,
+							"src": "265:673:0",
+							"usedErrors": []
+						}
+					],
+					"src": "33:905:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

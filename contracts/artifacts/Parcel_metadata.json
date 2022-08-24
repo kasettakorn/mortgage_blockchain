@@ -1,0 +1,212 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "parcel_no",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "owner_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "area",
+						"type": "uint256"
+					}
+				],
+				"name": "createParcel",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "getOlgt",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "parcel_no",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "olgt_name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "olgt_price",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct OlgtBank",
+						"name": "olgt",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "getParcel",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "parcel_no",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "owner_name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "price",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "area",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Parcel_land",
+						"name": "parcel_land",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "bank",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "parcel_no",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "owner_name",
+						"type": "string"
+					}
+				],
+				"name": "mortgage",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "owner_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "redeem",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Parcel.sol": "Parcel"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Parcel.sol": {
+			"keccak256": "0xb076c9a18b90d9cdf6027e47d91caa03fa3e9c87232f3979bd00ba981a8e33e4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f5ebef24c1156074a71e8c30a89561b67c9d90c3f4e2eae93d726acdfb1547df",
+				"dweb:/ipfs/QmRhVi4EfroNaLwwiMrz6BfFTPdiSN6Bo7AX1nq5tK2c4Z"
+			]
+		}
+	},
+	"version": 1
+}
